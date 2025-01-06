@@ -4,7 +4,6 @@ import java.sql.*;
 
 public class Patient {
     
-    // Method to add a new patient
     public static void addPatient(String name, int age, String gender, String contact, String address) {
         String sql = "INSERT INTO Patients (Name, Age, Gender, Contact, Address) VALUES (?, ?, ?, ?, ?)";
 
@@ -22,9 +21,8 @@ public class Patient {
         }
     }
 
-    // Method to view all patients from the database
     public static void viewPatients() {
-        String sql = "SELECT * FROM Patients";  // Query to fetch all patient records
+        String sql = "SELECT * FROM Patients"; 
         try (Connection conn = DatabaseConnection.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
